@@ -1,7 +1,7 @@
-
 from application import db
 
 TABLE_NAME = 'gene_autocomplete'
+
 
 class Gene(db.Model):
     """
