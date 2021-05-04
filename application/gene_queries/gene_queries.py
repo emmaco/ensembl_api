@@ -12,9 +12,9 @@ gene_query_bp = Blueprint(
 @gene_query_bp.route('/v1/resources/gene_suggest', methods=['GET'])
 def gene_suggest_query():
     """
-
-    :return:
-    :rtype:
+    Endpoint /gene_suggest responds with the suggested gene names for the user query
+    :return: Suggested gene names
+    :rtype: JSON
     """
     try:
         query, species, limit = get_request_params(request)
@@ -26,10 +26,11 @@ def gene_suggest_query():
 
 def get_request_params(req):
     """
-    :param req:
-    :type req:
-    :return:
-    :rtype: object
+    Ensure the parameters query, species, limit are in the request arguments
+    :param req: request
+    :type req: request object
+    :return: the arguments query, species, limit
+    :rtype: str
     
     """
     try:
@@ -47,15 +48,15 @@ def get_request_params(req):
 
 def get_gene_suggestions(query, species, limit):
     """
-
-    :param query:
-    :type query:
-    :param species:
-    :type species:
-    :param limit:
-    :type limit: 
-    :return:
-    :rtype:
+    Query the database for gene names for the given query and species
+    :param query: the query typed by the user, e.g. abc
+    :type query: str
+    :param species: the name of the target species, e.g. homo_sapiens
+    :type species: str
+    :param limit: maximum number of suggestions to return, e.g. 10
+    :type limit: str
+    :return: suggested gene names
+    :rtype: list
     """
     try:
         query = Gene.query.filter(Gene.display_label.startswith(query)).filter_by(species=species).limit(limit).all()
