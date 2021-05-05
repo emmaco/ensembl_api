@@ -41,7 +41,7 @@ def get_request_params(req):
         raise GeneQueryError(e)
 
     if query is None or species is None:
-        raise GeneQueryError('Please ')
+        raise GeneQueryError('Please ensure you have correctly entered the parameters.')
 
     return query, species, limit
 

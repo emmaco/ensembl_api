@@ -2,6 +2,9 @@ import os
 
 
 class Config(object):
+    """
+    Class to contain the configuration values
+    """
     server = 'ensembldb.ensembl.org'
     port = '3306'
     db_name = 'ensembl_website_102'
