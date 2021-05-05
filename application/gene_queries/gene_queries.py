@@ -9,7 +9,7 @@ gene_query_bp = Blueprint(
 )
 
 
-@gene_query_bp.route('/v1/resources/gene_suggest', methods=['GET'])
+@gene_query_bp.route('/gene_suggest', methods=['GET'])
 def gene_suggest_query():
     """
     Endpoint /gene_suggest responds with the suggested gene names for the user query
@@ -18,7 +18,7 @@ def gene_suggest_query():
     """
     try:
         query, species, limit = get_request_params(request)
-        gene_suggestions = {'gene_suggest': get_gene_suggestions(query, species, limit)}
+        gene_suggestions = {'Suggested gene names': get_gene_suggestions(query, species, limit)}
         return jsonify(gene_suggestions)
     except Exception as e:
         raise e
