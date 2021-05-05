@@ -2,11 +2,11 @@
 
 This API provides the endpoint **gene_suggest**. Based on the arguments provided by the user, the endpoint will return a list of suggested gene names for a given query and species.  It queries the public database from ensembl.org, namely ensembl_website_102.
 
-###GET /gene_suggest
+### GET /gene_suggest
 
 Get a list of suggested gene names for a given query and species. Limit the number of suggestions to return.
 
-###Parameters
+### Parameters
 
 |     Name       |     Type      |     Description                                |     Example value    |   |
 |----------------|---------------|------------------------------------------------|----------------------|---|
@@ -15,22 +15,22 @@ Get a list of suggested gene names for a given query and species. Limit the numb
 |     limit      |     String    |     Maximum number of suggestions to return    |     10               |   |
 
 
-##Example URI 
+## Example URI 
 
 /gene_suggest?query=brc&species=homo_sapiens&limit=10
 
-###Example request using curl
+### Example request using curl
 
 `curl -get 'http://127.0.0.1:5000/gene_suggest?query=brc&species=homo_sapiens&limit=10'`
 
-###Expected response
+### Expected response
 
 {"Suggested gene names":["BRCA1","BRCA2","BRCC3","BRCC3P1"]}
 
 
 ## Run the API
 
-###Run locally
+### Run locally
 
 You will need to have python3 and pip already installed. The application dependencies will be installed with pip and can be found in requirements.txt. The steps are as follows: 
 
@@ -52,7 +52,7 @@ or
 
 `$ python3 app.py`
 
-###Run with Docker
+### Run with Docker
 
 You will need to have docker installed on your system. Run the following command:
 
